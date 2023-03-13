@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock title %}
+{% block body %}
+
+<h2 class="text-center">Flight Details</h2>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Flight_Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Terminal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div class="container">
+            {% if allFlights|length < 1 %}
+            <h3>No Search Result Found</h3>
+            Your Search - <b>{{query}} </b>- did not match any documents.
+            <br>Suggestions :-
+            <ul>
+                Make sure that all words are spelled correctly.<br>
+                Try different Keywords.<br>
+                Try more general keywords.<br>
+                Try fewer keywords.</ul>
+            {% endif %}
+            </div>
+            {% for Flight in allFlights %}
+            <tr>
+                <td>{{Flight.flight_name}}</td>
+                <td>{{Flight.destination}}</td>
+                <td>{{Flight.terminal}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<!-- Onbehalf PopUp Alert end-->
+
+
+<!--  Privacy Policy Popup Start   -->
+
+
+<div class="modal fade" id="campaign_thank_you" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">&times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong> Thank you for showing interest.</strong> You shall
+                    get
+                    a call from our RoyalsKing expert shortly. </p>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock body %}

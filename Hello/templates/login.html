@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Login{% endblock title %}
+{% block body %}
+
+<div class="container mb-3 py-4">
+<div class="row my-3">
+<div class="col-sm-6 offset-sm-3">
+<h2 class="text-center">Login</h2>
+    <form action="/login" method="post" class="shadow p-5">
+        {% csrf_token %}
+        <div class="d-flex align-items-center mb-3 pb-1">
+        </div>
+        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example17">Username</label>
+            <input type="text" id="form2Example17" name="loginusername" required class="form-control form-control-lg" />
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example27">Password</label>
+            <input type="password" id="form2Example27" name="loginpassword" required class="form-control form-control-lg" />
+        </div>
+<!--             Checkbox -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked/>
+          <label class="form-check-label" for="form1Example3">Remember me</label>
+        </div>
+        <div class="pt-1 mb-4">
+            <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit">Login</button>
+        </div>
+
+                   <a class="small text-muted" href="">Forgot password?</a>
+                   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/signup" style="color: blue;">Register here</a>
+                  <br>
+                   <a class= pb-lg-2" style="color: #393f81;">Are You Admin? <a href="/admin" style="color: red;">ADMIN Login</a>
+
+
+    </form>
+</div>
+
+<!--</script>-->
+<!--    </body>-->
+<!--</html>-->
+
+<!--</style>-->
+<div class="toTop" id="toTop" style="display: none;">
+    <a href="javascript:void(0)" class="back-top-btn"><i class="angle-arrow up-arrow "></i></a>
+</div>
+<!-- FOOTER -->
+  <footer class="container">
+      <button  class="float-right btn btn-outline-success"><a href="#" id="myBtn">&#8679; CLICK TO TOP</a></button>
+      <a href="/privacy-policy">Privacy</a> &middot; <a href="/terms">Terms</a>
+      <div style="position: fixed;bottom: 5px;z-index: 99999; display: none;" data-id="TTMY1VTSF9p" class="livechat_button"><a href="https://www.livechatinc.com/help-desk-software/?partner=lc_7501661&amp;utm_source=chat_button">Live Chat!</a></div>
+    <div class="col-lg-12 col-md-12 col-sm-12 footer_row_2">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer_copyright text-center">
+            <h6>Copyright © 2021 RKT Travel Limited (Formerly known as RoyalsKing Tour & Travels Private Ltd) Corporate Identification no: U956250MH6001PLC131691</h6>
+
+        </div>
+    </div>
+  </footer>
+
+
+
+
+    <!--  Onbehalf PopUp Alert start   -->
+
+    <div id="onBehalfPopUpAlert" class="commonAlrt_btn modal fade" role="dialog">
+        <div class="modal-dialog modal-md Alertpopup">
+            <!-- Modal content-->
+            <div class="col-sm-12 col-xs-12 padding-remove modal-content">
+                <div class="col-sm-12 col-xs-12">
+                    <p class="modal-title">On Behalf Booking not available for Hotels.</p>
+                </div>
+                <div class="col-xs-12 modal-body">
+                    <form>
+                        <div class="col-xs-12 padding-remove m_btnbg form-group alrt_submit">
+                            <div class="text-center pop_label">
+                                <button type="button" class="alrt_btn" id="onbehalfBtn">Ok</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

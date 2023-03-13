@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SignUp{% endblock title %}
+{% block signupactive %} active {% endblock signupactive %}
+
+{% block body %}
+
+<div class="container mb-3 py-4">
+    <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+            <h2 class="text-center">Registration Form</h2>
+            <form action="/signup" class="shadow p-5" method="post" name="RegistrationForm"
+                  onsubmit="return validateform()">
+                {% csrf_token %}
+                <div class="form-outline mb-4">
+
+                    <label class="form-label" for="form3Example1cg">First Name</label>
+                    <input class="form-control form-control-lg" id="form3Example1cg" name="first_name" required
+                           type="text"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Last Name</label>
+                    <input class="form-control form-control-lg" id="form3Example3cg" name="last_name" required
+                           type="text"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Username</label>
+                    <input class="form-control form-control-lg" id="form3Example2cg" name="username" required
+                           type="text"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4cg">Password</label>
+                    <input class="form-control form-control-lg" id="form3Example4cg" name="password" required
+                           type="password"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Email</label>
+                    <input class="form-control form-control-lg" id="form3Example5cg" name="email" required
+                           type="email"/>
+                </div>
+                <!-- Checkbox -->
+                <div class="form-check">
+                    <input checked class="form-check-input" id="form1Example3" type="checkbox" value=""/>
+                    <label class="form-check-label" for="form3Example3cg"> Remember me </label>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                            type="submit">Sign Up
+                    </button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a class="fw-bold text-body"
+                                                                                        href="/login"><u>Login
+                    here</u></a></p>
+
+                <p>{{error_reg}}</p>
+                <p>{{error}}</p>
+
+            </form>
+        </div>
+
+        <div class="toTop" id="toTop" style="display: none;">
+            <a class="back-top-btn" href="javascript:void(0)"><i class="angle-arrow up-arrow "></i></a>
+        </div>
+        <!-- FOOTER -->
+        <footer class="container">
+            <button  class="float-right btn btn-outline-success"><a href="#" id="myBtn">&#8679; CLICK TO TOP</a></button>
+            <a href="/privacy-policy">Privacy</a> &middot; <a href="/terms">Terms</a>
+            <div class="livechat_button" data-id="TTMY1VTSF9p"
+                 style="position: fixed;bottom: 5px;z-index: 99999; display: none;"><a
+                    href="https://www.livechatinc.com/help-desk-software/?partner=lc_7501661&amp;utm_source=chat_button">Live
+                Chat!</a></div>
+            <div class="col-lg-12 col-md-12 col-sm-12 footer_row_2">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer_copyright text-center">
+                    <h6>Copyright © 2021 RKT Travel Limited (Formerly known as RoyalsKing Tour & Travels Private Ltd)
+                        Corporate Identification no: U956250MH6001PLC131691</h6>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Onbehalf PopUp Alert start   -->
+
+        <div class="commonAlrt_btn modal fade" id="onBehalfPopUpAlert" role="dialog">
+            <div class="modal-dialog modal-md Alertpopup">
+                <!-- Modal content-->
+                <div class="col-xs-12 modal-body">
+                    <form>
+                        <div class="col-xs-12 padding-remove m_btnbg form-group alrt_submit">
+                            <div class="text-center pop_label">
+                                <button class="alrt_btn" id="onbehalfBtn" type="button">Ok</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% endblock %}
+
